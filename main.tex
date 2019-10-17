@@ -1,14 +1,140 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{csquotes}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{biblio.bib}
 
-\title{Bibliografía SETR}
+ \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+ }
+
+\DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\clearfield{url}%
+   \clearfield{pages}%
+   \clearfield{pagetotal}%
+   \clearfield{edition}%
+   \clearfield{labelyear}%
+   \usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\title{Bibliografía Sistemas Embebidos y de Tiempo Real}
 \author{Francisco Páez}
-\date{October 2019}
 
 \begin{document}
 
 \maketitle
 
-\section{Introduction}
+\section{Introducción}
+Este documento reúne los artículos, libros, reportes, etc., que forman parte de la bibliografía de la cátedra Sistemas Embebidos y de Tiempo Real. El objetivo es que sirva de guía para encontrar rápidamente el material de referencia para cada uno de los temas que se ven en la cursada.
+
+\section{Principios de los Sistemas de Tiempo Real}
+Estos trabajos presentan una introducción a los Sistemas de Tiempo Real:
+\begin{itemize}
+    \item \fullcite{Shin1994}
+    \item \fullcite{Stankovic88}
+    \item \fullcite{Urriza2008}
+\end{itemize}
+
+\section{Planificación de tareas periódicas}
+\subsection*{Rate Monotonic}
+\begin{itemize}
+    \item \fullcite{LiuL73}
+\end{itemize}
+
+\subsection*{Deadline Monotonic}
+\begin{itemize}
+    \item \fullcite{LeungW82}
+\end{itemize}
+
+\subsection*{Earliest Deadline First}
+\begin{itemize}
+    \item \fullcite{LiuL73}
+\end{itemize}
+
+\subsection*{Prioridades limitadas}
+\begin{itemize}
+    \item \fullcite{CayssialsOSS99}
+\end{itemize}
+
+\section{Análisis de planificabilidad}
+\subsection{Métodos por cotas}
+\subsubsection*{Test de Liu \& Layland}
+\begin{itemize}
+    \item \fullcite{LiuL73}
+\end{itemize}  
+\subsubsection*{Test de Bini}
+\begin{itemize}
+    \item \fullcite{BiniBB01}
+\end{itemize}    
+    
+\subsection{Métodos exactos}
+Los siguientes trabajos describen métodos \emph{exactos}, esto es de \emph{condición necesaria y suficiente}, para la evaluación de planificabilidad bajo esquemas de asignación de prioridades fijas.
+\subsubsection*{Test de Joseph \& Pandya}
+\begin{itemize}
+    \item \fullcite{JosephP86}
+\end{itemize}
+\subsubsection*{Mejora de Sjödin (RTA)}
+\begin{itemize}
+    \item \fullcite{SjodinH98}
+\end{itemize}
+\subsubsection*{Mejoras de Urriza (RTA2, RTA3, RTA4)}
+\begin{itemize}
+    \item \fullcite{Urriza2008b}
+    \item \fullcite{Urriza2015}
+\end{itemize}  
+
+\section{Planificación de tareas aperiódicas}
+\subsection*{Servidores}
+\begin{itemize}
+    \item \fullcite{StrosniderLS95}
+    \item \fullcite{FohlerLB01}
+    \item \fullcite{SpuriB94}
+    \item \fullcite{SpruntLS88}
+\end{itemize}
+\subsection*{K-diagramabilidad}
+\begin{itemize}
+    \item \fullcite{Orozco2000}
+\end{itemize}
+\subsection*{Dual Priority}
+\begin{itemize}
+    \item \fullcite{DavisW95}
+\end{itemize}
+\subsection*{Slack Stealing}
+\begin{itemize}
+    \item \fullcite{Urriza2010}
+    \item \fullcite{urriza2005fast}
+\end{itemize}
+
+\section{Recursos compartidos}
+\subsection*{Herencia de prioridades y protocolo techo}
+\begin{itemize}
+    \item \fullcite{sha1990}
+\end{itemize}
+
+\subsection*{Stack Resource Policy}
+\begin{itemize}
+    \item \fullcite{Baker1990}
+    \item \fullcite{Baker91}
+\end{itemize}
+
+\section{Ahorro de energía}
+\begin{itemize}
+    \item \fullcite{urriza2005b}
+    \item \fullcite{urriza2009ahorro}
+\end{itemize}
+
+\section{Otros}
+\begin{itemize}
+    \item \fullcite{halang_contemporary_1993}
+\end{itemize}
 
 \end{document}
